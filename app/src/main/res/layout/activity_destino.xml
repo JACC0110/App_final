@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="destino"
+            type="com.example.appfinal.data.model.Destino" />
+    </data>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorBackground">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:padding="16dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal">
+
+            <ImageButton
+                android:id="@+id/btnMenu"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:src="@drawable/ic_more_vert"
+                android:contentDescription="Menú"
+                android:layout_margin="8dp"
+                app:tint="@color/colorTextPrimary" />
+
+            <ImageView
+                android:id="@+id/imagen"
+                android:layout_width="220dp"
+                android:layout_height="220dp"
+                android:scaleType="centerCrop"
+                android:layout_marginTop="16dp"
+                app:base64Avatar="@{destino.imagen}"
+                android:contentDescription="Imagen del destino" />
+
+            <TextView
+                android:id="@+id/tvName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text='@{destino.nombre}'
+                android:textStyle="bold"
+                android:textColor="@color/colorTextPrimary"
+                android:textSize="22sp"
+                android:layout_marginTop="12dp" />
+
+            <TextView
+                android:id="@+id/tvDescripcion"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text='@{destino.descripcion}'
+                android:textColor="#4CAF50"
+                android:textSize="16sp"
+                android:layout_marginTop="8dp" />
+
+            <TextView
+                android:id="@+id/tvPuntuacion"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text='@{"Puntuación: " + String.valueOf(destino.puntuacion)}'
+                android:layout_marginTop="12dp"
+                android:textSize="16sp"
+                android:textColor="@color/colorTextPrimary" />
+
+            <com.google.android.gms.maps.MapView
+                android:id="@+id/mapView"
+                android:layout_width="match_parent"
+                android:layout_height="250dp"
+                android:layout_marginTop="12dp" />
+
+            <TextView
+                android:id="@+id/tvTitleResenas"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Reseñas:"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:textColor="@android:color/black"
+                android:gravity="start"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="8dp"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp" />
+
+            <TextView
+                android:id="@+id/tvResenas"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Cargando reseñas..."
+                android:layout_marginTop="12dp"
+                android:textColor="@color/colorTextPrimary"
+                android:textSize="14sp" />
+        </LinearLayout>
+    </ScrollView>
+</layout>
+
+
