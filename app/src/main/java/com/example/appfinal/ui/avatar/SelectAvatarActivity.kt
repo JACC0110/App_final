@@ -18,6 +18,7 @@ import androidx.core.content.ContextCompat
 import com.example.appfinal.R
 import com.example.appfinal.data.repository.UserRepository
 import com.example.appfinal.ui.main.MainActivity
+import com.example.appfinal.ui.password.ChangePasswordActivity
 import com.example.appfinal.utils.SessionManager
 import java.io.ByteArrayOutputStream
 
@@ -50,6 +51,11 @@ class SelectAvatarActivity : AppCompatActivity() {
             selectedBitmap?.let { bitmap ->
                 subirAvatar(bitmap)
             } ?: Toast.makeText(this, "Primero selecciona una imagen", Toast.LENGTH_SHORT).show()
+        }
+
+        val btnChangePassword = findViewById<Button>(R.id.btnGoChangePassword)
+        btnChangePassword.setOnClickListener {
+            startActivity(Intent(this, ChangePasswordActivity::class.java))
         }
     }
 
